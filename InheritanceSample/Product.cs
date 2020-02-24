@@ -48,4 +48,14 @@ namespace InheritanceSample
             return base.ToString() + $"  Ver: {Version}\n";
         }
     }
+
+    class MobileApplication : Software
+    {
+        public string MobileOS { get; set; }
+
+        public override string ToString()
+        {
+            return base.ToString() +$"  OS: {MobileOS}\n";
+        }
+    }
 }

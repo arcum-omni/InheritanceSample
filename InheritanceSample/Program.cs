@@ -51,9 +51,19 @@ namespace InheritanceSample
                 Version = "10.0.18363 Build 18363"
             };
 
+            MobileApplication a = new MobileApplication
+            {
+                Code = "test",
+                Description = "test of subtype",
+                Price = 9.99,
+                Version = "1.0.0",
+                MobileOS = "AppleOS"
+            };
+
             DisplayProduct(p);
             DisplayProduct(b);
             DisplayProduct(s);
+            DisplayProduct(a);
         }
 
         /// <summary>
