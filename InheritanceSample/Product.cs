@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace InheritanceSample
 {
+    /// <summary>
+    /// Product Object
+    /// </summary>
     class Product
     {
         public string Code { get; set; }
@@ -20,6 +23,9 @@ namespace InheritanceSample
         }
     }
 
+    /// <summary>
+    /// Book, subtype of Product
+    /// </summary>
     class Book : Product
     {
         public string Author { get; set; }
@@ -30,6 +36,9 @@ namespace InheritanceSample
         }
     }
 
+    /// <summary>
+    /// Software, subtype of Product
+    /// </summary>
     class Software : Product
     {
         public string Version { get; set; }

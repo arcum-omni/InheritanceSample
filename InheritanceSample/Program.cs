@@ -13,6 +13,7 @@ namespace InheritanceSample
     {
         static void Main(string[] args)
         {
+            #region TournamentEntry Dada Manipulation
             //TournamentEntry te = new TournamentEntry();
             //te.AddGame(225);
             //te.AddGame(250);
@@ -25,6 +26,7 @@ namespace InheritanceSample
             //te.AddGame(190, TournamentEntry.GameNumber.Thrid);
             //te.AddGame(275, TournamentEntry.GameNumber.Fourth);
             //te.AddGame(300, TournamentEntry.GameNumber.First);
+            #endregion
 
             Product p = new Product
             {
@@ -52,15 +54,16 @@ namespace InheritanceSample
             DisplayProduct(p);
             DisplayProduct(b);
             DisplayProduct(s);
-
         }
 
+        /// <summary>
+        /// Displays product object, or children/derived objects / instances of subtypes
+        /// </summary>
+        /// <param name="p"></param>
         private static void DisplayProduct(Product p)
         {
             Console.WriteLine(p.ToString());
             Console.ReadKey();
         }
     }
-
-
 }
