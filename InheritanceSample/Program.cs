@@ -28,32 +28,28 @@ namespace InheritanceSample
             //te.AddGame(300, TournamentEntry.GameNumber.First);
             #endregion
 
-            Product p = new Product
+            Product p = new Product("ABC")
             {
-                Code = "ABC",
                 Description = "A generic product",
                 Price = 9.99
             };
 
-            Book b = new Book
+            Book b = new Book("978-1890774943")
             {
-                Code = "978-1890774943",
                 Description = "Murach's C# 2015 6th Edition",
                 Price = 46.49,
-                Author = "Joel Murach "
+                //Author = "Joel Murach "
             };
 
-            Software s = new Software
+            Software s = new Software("FQC-09525")
             {
-                Code = "FQC-09525",
                 Description = "Windows 10 Pro",
                 Price = 129.99,
                 Version = "10.0.18363 Build 18363"
             };
 
-            MobileApplication a = new MobileApplication
+            MobileApplication ma = new MobileApplication("acb0123")
             {
-                Code = "test",
                 Description = "test of subtype",
                 Price = 9.99,
                 Version = "1.0.0",
@@ -63,7 +59,7 @@ namespace InheritanceSample
             DisplayProduct(p);
             DisplayProduct(b);
             DisplayProduct(s);
-            DisplayProduct(a);
+            DisplayProduct(ma);
         }
 
         /// <summary>
@@ -72,6 +68,19 @@ namespace InheritanceSample
         /// <param name="p"></param>
         private static void DisplayProduct(Product p)
         {
+            // check at runtime and get compile time support
+            if (p is Book)
+            {
+                // https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/type-testing-and-cast
+                // Traditional casting
+                //Book temp = (Book)p;
+
+                // New casting style, behaves same as above
+                Book temp = p as Book;
+
+                Console.WriteLine($"Check out the book {temp.Description} written by {temp.Author}!\n");
+            }
+
             Console.WriteLine(p.ToString());
             Console.ReadKey();
         }
