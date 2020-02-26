@@ -51,7 +51,7 @@ namespace InheritanceSample
         /// <summary>
         /// The author of the book, default is Joel Murach.
         /// </summary>
-        public string Author { get; set; } = "Joel Murach";
+        public string Author { get; set; } = "Unknown";
 
         public override string ToString()
         {

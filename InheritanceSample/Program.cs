@@ -13,7 +13,30 @@ namespace InheritanceSample
     {
         static void Main(string[] args)
         {
-            #region TournamentEntry Dada Manipulation
+            Person p; // undeclared person variable, not an instanciation
+            Console.WriteLine("Are you student?");
+            string input = Console.ReadLine();
+            if (input == "y" || input == "yes")
+            {
+                p = new Student();
+                Console.WriteLine("What is your major of study?");
+                string major = Console.ReadLine();
+                Student curStu = p as Student;
+                curStu.Major = major;
+            }
+            else
+            {
+                p = new Instructor();
+            }
+            p.FullName = "Jonathan Smithe";
+            p.Email = "smithe1234@student.cptc.edu";
+            p.Register("CPW 101", "CPW 150");
+            Console.ReadKey();
+        }
+
+        private static void ProductTesting()
+        {
+            #region TournamentEntry Data Manipulation
             //TournamentEntry te = new TournamentEntry();
             //te.AddGame(225);
             //te.AddGame(250);
@@ -28,7 +51,7 @@ namespace InheritanceSample
             //te.AddGame(300, TournamentEntry.GameNumber.First);
             #endregion
 
-            Product p = new Product("ABC")
+            Product p = new Product("00001")
             {
                 Description = "A generic product",
                 Price = 9.99
@@ -38,7 +61,7 @@ namespace InheritanceSample
             {
                 Description = "Murach's C# 2015 6th Edition",
                 Price = 46.49,
-                //Author = "Joel Murach "
+                Author = "Joel Murach "
             };
 
             Software s = new Software("FQC-09525")
@@ -48,10 +71,10 @@ namespace InheritanceSample
                 Version = "10.0.18363 Build 18363"
             };
 
-            MobileApplication ma = new MobileApplication("acb0123")
+            MobileApplication ma = new MobileApplication("MTAA-0001")
             {
-                Description = "test of subtype",
-                Price = 9.99,
+                Description = "Target Archery App",
+                Price = 99.99,
                 Version = "1.0.0",
                 MobileOS = "AppleOS"
             };
@@ -69,6 +92,8 @@ namespace InheritanceSample
         private static void DisplayProduct(Product p)
         {
             // check at runtime and get compile time support
+                // if(p.GetType() == typeof(Book))
+                // if(p.GetType().Name == nameof(Book))
             if (p is Book)
             {
                 // https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/type-testing-and-cast
